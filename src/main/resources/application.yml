@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://101.200.3.97:3306/blog
+    password: Wk@666666
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.blog.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  pageSizeZero: true
+file:
+  # 部署前是 http://localhost:8080/avatar/
+  # 现在改为你的域名（注意：因为 Nginx 监听 80，所以不需要加 :8080）
+  upload-host: http://yuukablog.xyz/avatar/

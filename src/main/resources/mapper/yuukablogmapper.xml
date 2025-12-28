@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.mapper.yuukablogmapper">
+    <insert id="insertBlog">
+        INSERT INTO yuukablog (
+        title,
+        content,
+        category_id
+        )
+        VALUES (
+        #{title},
+        #{content},
+        #{categoryId, jdbcType=INTEGER}
+        )
+    </insert>
+    <select id="selectBlog" resultType="com.blog.pojo.blog">
+        SELECT * FROM yuukablog LIMIT #{begin},#{end}
+    </select>
+    <update id="updateByid"  parameterType="com.blog.pojo.blog">
+        UPDATE yuukablog
+        SET title = #{title},
+        content = #{content}
+        WHERE id = #{id}
+    </update>
+    <select id="login" resultType="com.blog.pojo.user">
+        select * from user where username = #{username} and password = #{password}
+    </select>
+</mapper>
