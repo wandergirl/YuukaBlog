@@ -30,7 +30,7 @@ public class avatar {
 
         // 4. 构建返回结果 (必须是 Map/对象，这样返回的就是 JSON {"url": "..."})
         Map<String, String> result = new HashMap<>();
-        String url = "http://localhost:8080/avatar/" + finalName;
+        String url = "http://yuukablog.xyz/avatar/" + finalName;
         result.put("url", url);
 
         System.out.println("上传成功，访问路径: " + url);

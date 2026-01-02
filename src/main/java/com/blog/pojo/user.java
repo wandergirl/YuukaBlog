@@ -6,10 +6,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class user {
-    int id;
-    String username;
-    String password;
-    String role;
+   private int id;
+    private String username;
+    private String password;
+    private String role;
     private String avatarUrl;
+    private String email;
+
 
 }

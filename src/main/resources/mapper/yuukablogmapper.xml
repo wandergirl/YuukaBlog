@@ -16,15 +16,19 @@
         )
     </insert>
     <select id="selectBlog" resultType="com.blog.pojo.blog">
-        SELECT * FROM yuukablog LIMIT #{begin},#{end}
+<!--        SELECT * FROM yuukablog update_time DESC LIMIT #{begin},#{end}-->
+        SELECT * FROM yuukablog
+        ORDER BY update_time DESC
+        LIMIT #{begin}, #{end}
     </select>
     <update id="updateByid"  parameterType="com.blog.pojo.blog">
         UPDATE yuukablog
         SET title = #{title},
-        content = #{content}
+        content = #{content},
+        update_time = NOW()
         WHERE id = #{id}
     </update>
     <select id="login" resultType="com.blog.pojo.user">
-        select * from user where username = #{username} and password = #{password}
+        select * from user where email = #{email} and password = #{password}
     </select>
 </mapper>

@@ -9,6 +9,12 @@ public class JwtInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        String uri = request.getRequestURI();
+
+        // 如果是访问封面或图片，直接返回 true 放行
+        if (uri.contains("/cover/**")) {
+            return true;
+        }
         // 1. 放行 OPTIONS 请求（处理跨域预检）
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             return true;

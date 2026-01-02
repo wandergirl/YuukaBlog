@@ -17,7 +17,10 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("file:/root/upload/");
         registry.addResourceHandler("/avatar/*")
                 .addResourceLocations("file:/root/avatar/");
+        registry.addResourceHandler("/poster/*")
+                .addResourceLocations("file:/root/poster/");
     }
+
     @Autowired
     private JwtInterceptor jwtInterceptor;
 
@@ -26,8 +29,10 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(jwtInterceptor)
                 .addPathPatterns("/**")             // 拦截所有请求
                 .excludePathPatterns("/login")      // 放行登录接口
-                .excludePathPatterns("/avatar/**")  // 放行头像接口 (允许上传和查看)
-                .excludePathPatterns("/static/**");
+                .excludePathPatterns("/avatar/*")
+                .excludePathPatterns("/image/*")
+                .excludePathPatterns("/static/*")
+                .excludePathPatterns("/poster/**");
     }
     @Override
     public void addCorsMappings(CorsRegistry registry) {

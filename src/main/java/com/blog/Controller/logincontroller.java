@@ -29,7 +29,7 @@ public class logincontroller {
             return result;
         } else {
             result.put("code", 401);
-            result.put("message", "用户名或密码错误");
+            result.put("message", "邮箱或密码错误");
             return result;
         }
     }

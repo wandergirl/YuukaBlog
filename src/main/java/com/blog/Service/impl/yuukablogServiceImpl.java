@@ -27,6 +27,7 @@ public class yuukablogServiceImpl implements yuukablogService{
 
     @Override
     public void update(blog YuukaBlog) {
+
         yuukamapper.updateByid(YuukaBlog);
     }
 
